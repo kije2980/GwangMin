@@ -6,9 +6,11 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +24,11 @@ import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Place.Field> fields = new ArrayList<>();
     private GetPlaceAndPhoto getPlaceAndPhoto;
     private String apikey = "AIzaSyBTKIAknIvncH9pwlBjQ0mylhnwaFVzZkI";
+    private ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
         btn4 = findViewById(R.id.btn4);
+        image = findViewById(R.id.images);
 
         if (!Places.isInitialized()) {
             Places.initialize(getApplicationContext(), apikey);
@@ -119,7 +127,8 @@ public class MainActivity extends AppCompatActivity {
         btn4.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                text1.setText(getPlaceAndPhoto.getPlaces().toString());
+                getPlaceAndPhoto.getPlaces().toString();
+                mapResult(getPlaceAndPhoto.getpMap(), image);
             }
         });
 
@@ -128,5 +137,14 @@ public class MainActivity extends AppCompatActivity {
     public void setlocation(String location)
     {
         this.location = location;
+    }
+
+    public void mapResult(LinkedHashMap<String, Bitmap> pmap, ImageView image) {
+        Set<String> set = pmap.keySet();
+        Iterator<String> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            String key = iterator.next();
+            image.setImageBitmap(pmap.get(key));
+        }
     }
 }
