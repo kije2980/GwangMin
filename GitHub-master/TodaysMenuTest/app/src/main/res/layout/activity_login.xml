@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_brown"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tv_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="오 늘 의 메 뉴 가 고 민 될 땐"
+        android:textSize="15sp"
+        android:fontFamily="@font/bmhanna"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/iv_food"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/food"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/tv_subtitle"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/tv_tite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="오늘 뭐먹지?"
+        android:textSize="50sp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sdmisaeng"
+        android:layout_below="@+id/iv_food"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_guest"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:text="로그인없이 시작하기"
+        android:textColor="#ffff"
+        android:fontFamily="@font/bmyeonsung"
+        android:textSize="20dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/btn_shape"
+        android:layout_below="@+id/tv_tite"
+        android:layout_centerHorizontal="true"/>
+
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/login_btn_kakaologin"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/btn_guest"
+        android:background="@drawable/kakaobtn_shape"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/btn_manage_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copyright(C) 2019. 어쩌조"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:contextClickable="true"/>
+
+
+</RelativeLayout>
